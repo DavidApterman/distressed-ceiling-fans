@@ -30,7 +30,8 @@
   n=<huge>  time: 
 
   ANALYSIS:
-  <INSERT YOUR RESULTS ANALYSIS HERE>
+  MergeSort has a Big-Oh runtime of N(log N). Graphing the curve/calculating how each value
+related to its time.
   ======================================*/
 
 public class MergeSortTester 
