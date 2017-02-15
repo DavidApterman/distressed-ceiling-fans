@@ -22,9 +22,10 @@
 
   Mean execution times for dataset of size n:
   Batch size: <# of times each dataset size was run>
-  n=1       time: 
-  n=10      time: 
-  n=100     time: 
+  n=1       time: 64.66  nanoseconds(3 runs of class, each generating the average of 1110 runs)
+  n=10      time: 3819   nanoseconds      " " " " " 
+  n=100     time: 12438  nanoseconds      " " " " "
+  n=1000    time: 118471 nanoseconds      " " " " "
   ...
   n=<huge>  time: 
 
@@ -108,6 +109,7 @@ public class MergeSortTester
 	//=================================================================
 	System.out.println("n=1");
        	int[] n1 ={1};
+	int run1 = 0;
 	//1 run
        	long startTime = System.nanoTime();
 	sort(n1);
@@ -119,6 +121,7 @@ public class MergeSortTester
 	    sort(n1);
 	}
 	endTime=System.nanoTime();
+	run1+=( (endTime - startTime)/10);
 	System.out.println("The average time for 1 run is " +( (endTime - startTime)/10) + " nanoseconds. There were 10 runs.");
 	//100 runs
 	startTime=System.nanoTime();
@@ -126,6 +129,7 @@ public class MergeSortTester
 	    sort(n1);
 	}
 	endTime=System.nanoTime();
+	run1+=( (endTime - startTime)/100);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/100) + " nanoseconds. There were 100 runs.");
 	//1000 runs
 	startTime=System.nanoTime();
@@ -133,7 +137,9 @@ public class MergeSortTester
 	    sort(n1);
 	}
 	endTime=System.nanoTime();
+	run1+=( (endTime - startTime)/1000);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/1000) + " nanoseconds. There were 1000 runs.");
+	System.out.println("The average time for an array of size 1 overall is " + (run1 / 3) + " nanoseconds." );
 	System.out.println("------------------------------------------");
 
 	//=============================================================================
@@ -143,6 +149,7 @@ public class MergeSortTester
 	//=================================================================
 	System.out.println("n=10");
        	int[] n10 ={1,7,3,8,6,4,9,21,2,14};
+	int run10 = 0;
 	//1 run
         startTime = System.nanoTime();
 	sort(n10);
@@ -154,6 +161,7 @@ public class MergeSortTester
 	    sort(n10);
 	}
 	endTime=System.nanoTime();
+       	run10+=( (endTime - startTime)/10);
 	System.out.println("The average time for 1 run is " +( (endTime - startTime)/10) + " nanoseconds. There were 10 runs.");
 	//100 runs
 	startTime=System.nanoTime();
@@ -161,6 +169,7 @@ public class MergeSortTester
 	    sort(n10);
 	}
 	endTime=System.nanoTime();
+       	run10+=( (endTime - startTime)/100);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/100) + " nanoseconds. There were 100 runs.");
 	//1000 runs
 	startTime=System.nanoTime();
@@ -168,7 +177,9 @@ public class MergeSortTester
 	    sort(n10);
 	}
 	endTime=System.nanoTime();
+       	run10+=( (endTime - startTime)/1000);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/1000) + " nanoseconds. There were 1000 runs.");
+       	System.out.println("The average time for an array of size 10 overall is " + (run10 / 3) + " nanoseconds." );
 	System.out.println("------------------------------------------");
 
 	//=============================================================================
@@ -178,6 +189,7 @@ public class MergeSortTester
 	//=================================================================
 	System.out.println("n=10");
        	int[] n100 = new int[100];
+	int run100 = 0;
 	populate(n100);
 	//1 run
         startTime = System.nanoTime();
@@ -190,6 +202,7 @@ public class MergeSortTester
 	    sort(n100);
 	}
 	endTime=System.nanoTime();
+	run100+=( (endTime - startTime)/10);
 	System.out.println("The average time for 1 run is " +( (endTime - startTime)/10) + " nanoseconds. There were 10 runs.");
 	//100 runs
 	startTime=System.nanoTime();
@@ -197,6 +210,7 @@ public class MergeSortTester
 	    sort(n100);
 	}
 	endTime=System.nanoTime();
+	run100+=( (endTime - startTime)/100);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/100) + " nanoseconds. There were 100 runs.");
 	//1000 runs
 	startTime=System.nanoTime();
@@ -204,7 +218,9 @@ public class MergeSortTester
 	    sort(n100);
 	}
 	endTime=System.nanoTime();
+	run100+=( (endTime - startTime)/1000);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/1000) + " nanoseconds. There were 1000 runs.");
+       	System.out.println("The average time for an array of size 100 overall is " + (run100 / 3) + " nanoseconds." );
 	System.out.println("------------------------------------------");
 
 	//=============================================================================
@@ -214,6 +230,7 @@ public class MergeSortTester
 	//=================================================================
 	System.out.println("n=1000");
        	int[] n1000 = new int[1000];
+	int run1000 = 0;
 	populate(n1000);
 	//1 run
         startTime = System.nanoTime();
@@ -226,6 +243,7 @@ public class MergeSortTester
 	    sort(n1000);
 	}
 	endTime=System.nanoTime();
+	run1000+=( (endTime - startTime)/10);
 	System.out.println("The average time for 1 run is " +( (endTime - startTime)/10) + " nanoseconds. There were 10 runs.");
 	//100 runs
 	startTime=System.nanoTime();
@@ -233,6 +251,7 @@ public class MergeSortTester
 	    sort(n1000);
 	}
 	endTime=System.nanoTime();
+       	run1000+=( (endTime - startTime)/100);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/100) + " nanoseconds. There were 100 runs.");
 	//1000 runs
 	startTime=System.nanoTime();
@@ -240,7 +259,9 @@ public class MergeSortTester
 	    sort(n1000);
 	}
 	endTime=System.nanoTime();
+       	run1000+=( (endTime - startTime)/1000);
 	System.out.println("The average time for 1 run is " + ( (endTime - startTime)/1000) + " nanoseconds. There were 1000 runs.");
+       	System.out.println("The average time for an array of size 1000 overall is " + (run1000 / 3) + " nanoseconds." );
 	System.out.println("------------------------------------------");
 
 	//=============================================================================
